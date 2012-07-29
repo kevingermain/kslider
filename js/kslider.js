@@ -4,13 +4,13 @@
 
 		var kslider = $(this);
 		
-		//Ajout de la class kbig à la 1ère div du conteneur kslider
+		//Ajout de la class kbig Ã  la 1Ã¨re div du conteneur kslider
 		var kbig = $('div:eq(0)', kslider).addClass('kbig');
 		
-		//Récupération de la hauteur la plus haute entre les images
+		//RÃ©cupÃ©ration de la hauteur la plus haute entre les images
 		var kbigheightMax = Math.max.apply(Math, $('.kbig img', kslider).map(function(){ return $(this).height(); }).get());
 		
-		//Récupération de la largeur entre les images
+		//RÃ©cupÃ©ration de la largeur entre les images
 		var kbigwidthMax = Math.max.apply(Math, $('.kbig img', kslider).map(function(){ return $(this).width(); }).get());
 		
 		var ksmallheightMax = 0, ksmallwidthMax = 0;
@@ -23,7 +23,7 @@
 		}
 		else
 		{	
-			//Ajout de la class ksmall à la 2ème div du conteneur kslider
+			//Ajout de la class ksmall Ã  la 2Ã¨me div du conteneur kslider
 			$('div:eq(1)', kslider).removeClass().addClass('ksmall');
 			ksmallheightMax = Math.max.apply(Math, $('div:eq(1) img', kslider).map(function(){return $(this).outerHeight(true);}).get());
 			ksmallwidthMax = Math.max.apply(Math, $('.ksmall img', kslider).map(function(){return $(this).outerWidth(true);}).get());
@@ -31,7 +31,7 @@
 		
 
 			
-		//Paramètres par défaut
+		//ParamÃ¨tres par dÃ©faut
 		var defaults = {
 			width: kbigwidthMax,
 			height: kbigheightMax,
@@ -42,20 +42,20 @@
 			sameArea: true
 		};
 		
-		//Application des paramètres de l'utilisateur
+		//Application des paramÃ¨tres de l'utilisateur
 		var options = $.extend(defaults, options);
-				//Ajout de la class ksmall à la 2ème div du conteneur kslider
+				//Ajout de la class ksmall Ã  la 2Ã¨me div du conteneur kslider
 		var ksmall = $('div:eq(1)', kslider);
-		//Cacher toutes les grandes images sauf la 1ère
+		//Cacher toutes les grandes images sauf la 1Ã¨re
 		$('.kbig img', kslider).not(':first-child').hide();
 		
-		//Définition de la taille du slider complet : grand conteneur + petit conteneur
+		//DÃ©finition de la taille du slider complet : grand conteneur + petit conteneur
 		kslider.css({'width': options.width,'height' : options.height+options.heightThumb});
 		
-		//Définition de la taille du grand conteneur
+		//DÃ©finition de la taille du grand conteneur
 		kbig.css({'height': options.height,'width':options.width});
 			
-		//Opérations sur les grandes images
+		//OpÃ©rations sur les grandes images
 		$('.kbig img', kslider).css({'width':'auto', 'height':'auto', 'max-width': options.width, 'max-height':options.height});
 		$('.kbig img', kslider).map(function(){
 			var differenceHauteur = options.height - $(this).outerHeight();
@@ -67,7 +67,7 @@
 								 'margin-left': differenceLargeur/2, });
 		});
 		
-		//Opérations sur les miniatures
+		//OpÃ©rations sur les miniatures
 		var ksmallwidth = 0;
 		$('.ksmall img', kslider)
 		.css({'width':'auto', 
@@ -91,14 +91,14 @@
 									 'padding-left': differenceLargeur/2, });
 		})
 
-		//Définition de la taille du petit conteneur
+		//DÃ©finition de la taille du petit conteneur
 		
 		if(ksmallwidth < options.width)
 			ksmall.css({'width': options.width, 'height':options.heightThumb, 'padding-left': (options.width - ksmallwidth) / 2 });
 		else
 			ksmall.css({'width': ksmallwidth, 'height':options.heightThumb});
 
-		//Ajout des flèches de navigation
+		//Ajout des flÃ¨ches de navigation
 		kslider.append('<div style="" class="kleft"></div><div style="" class="kright"></div>');
 		
 		ksmallimg = $('.ksmall img', kslider);
