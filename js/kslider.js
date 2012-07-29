@@ -115,17 +115,12 @@
 			marginLeft = -posX / ((options.width)/(ksmallwidth-options.width));
 		});
 		
-		function marginleft()
+		if(posX < options.width && ksmallwidth > options.width)
 		{
 			setInterval(function(){
 				xp += (marginLeft - xp) / 15;
 				ksmall.css({'margin-left': xp});
 			}, 5);
-		}
-
-		if(posX < options.width && ksmallwidth > options.width)
-		{
-			marginleft();
 		}
 
 		
@@ -147,19 +142,22 @@
 			if($(this).next().length == 0)
 			{
 				$('.kbig img', kslider).first().fadeIn(options.speed);
-				$('.ksmall img', kslider).eq(index).fadeTo(300,0.5).first().fadeTo(500,1);
+				$('.ksmall img', kslider).eq(index).fadeTo(300,0.5);
+				$('.ksmall img', kslider).first().fadeTo(500,1);
 				if(ksmallwidth > options.width)
-				ksmall.animate({marginLeft: 0}, 500);
+					marginLeft = 0;
+			
 			}
 			else
 			{
 				$(this).next().fadeIn(options.speed);
-				$('.ksmall img', kslider).eq(index).fadeTo(300,0.5).eq(index+1).fadeTo(500,1);
+				$('.ksmall img', kslider).eq(index).fadeTo(300,0.5);
+				$('.ksmall img', kslider).eq(index+1).fadeTo(500,1);
 				marginLeft = (((options.width-ksmallwidth) / options.nbImage) * (index+2));
 				if((marginLeft<-options.widthThumb*(index+1)))
 					marginLeft = -options.widthThumb*index;
-				if(ksmallwidth > options.width)
-				ksmall.animate({marginLeft: marginLeft}, 500);
+			
+				
 			}
 		});
 		
