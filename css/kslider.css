@@ -1,0 +1,108 @@
+body {
+margin: 0;
+padding:0;
+}
+
+#kslider {
+	border:solid #AAA 1px;
+	box-shadow: 0px 0px 20px 6px #AAA;
+	border-radius':5px;
+	position:relative;
+}
+#kslider .kbig img {
+	position:absolute;
+	cursor:pointer;
+}
+#kslider .ksmall {
+	position:relative;
+	background-color:#111;	
+	cursor:pointer;
+}
+#kslider .ksmall img {
+	float:left;
+	opacity:0.5;
+	background-color:#999;
+	border: 6px solid #EEE;
+	margin:4px;
+
+}
+#kslider .kleft, #kslider .kright {
+	border-color: transparent #111 transparent transparent;
+	cursor:pointer;
+	border-style: solid;
+	position:relative;
+	opacity:0.4;
+	float:left;
+}
+#kslider .kright  {
+	border-color: transparent transparent transparent #111;
+	float:right;
+}
+
+#kslider3 {
+	border:solid #AAA 1px;
+	box-shadow: 0px 0px 20px 6px #AAA;
+	border-radius':5px;
+	position:relative;
+}
+#kslider3 .kbig img {
+	position:absolute;
+	cursor:pointer;
+}
+#kslider3 .ksmall {
+	position:relative;
+	background-color:#111;	
+	cursor:pointer;
+	background-color:#333;
+}
+#kslider3 .ksmall img {
+	float:left;
+	opacity:0.5;
+	background-color:#999;
+	border: 5px solid #EEE;
+	margin:4px;
+
+}
+#kslider3 .kleft, #kslider3 .kright {
+	border-color: transparent #111 transparent transparent;
+	cursor:pointer;
+	border-style: solid;
+	position:relative;
+	opacity:0.4;
+	float:left;
+}
+#kslider3 .kright  {
+	border-color: transparent transparent transparent #111;
+	float:right;
+}
+
+#kslider2 {
+	border:1px solid #777;
+	margin:0 auto;
+	box-shadow: 0px 0px 20px 6px #AAA;
+	border-radius:5px;
+	cursor:pointer;
+	position:relative;
+}
+#kslider2 .kbig img {
+	position:absolute;
+	cursor:pointer;
+}
+#kslider2 .ksmall {
+	position:relative;
+}
+#kslider2 .ksmall img {
+	float:left;
+	opacity:0.5;
+	border: 2px solid #999;
+}
+#kslider2 .kleft, #kslider2 .kright {
+	border-color: transparent #111 transparent transparent;
+	cursor:pointer;
+	border-style: solid;
+	position:absolute;
+	opacity:0.4;
+}
+#kslider2 .kright  {
+	border-color: transparent transparent transparent #111;
+}
