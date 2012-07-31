@@ -41,7 +41,8 @@
 			nbImage: $('.kbig img', kslider).length,
 			speed: 500,
 			sameArea: false,
-			opacity:0.4
+			opacity:0.4,
+			nav:true
 		};
 		
 		//Application des paramètres de l'utilisateur
@@ -104,9 +105,10 @@
 		if(ksmallwidth < options.width)
 			ksmall.css({'width': options.width, 'height':options.heightThumb, 'padding-left': (options.width - ksmallwidth) / 2+bordureksmallimg*2});
 		else
-			ksmall.css({'width': ksmallwidth+1, 'height':options.heightThumb});
+			ksmall.css({'width': ksmallwidth+2, 'height':options.heightThumb});
 
 		//Ajout des flèches de navigation
+		if(options.nav)
 		kslider.append('<div class="kleft" style="left:-50px;margin-top:-'+options.heightThumb+'px;border-width: '+(options.heightThumb/2)+'px 21px"></div><div class="kright" style="margin-top:-'+options.heightThumb+'px;border-width: '+(options.heightThumb/2)+'px 21px;right:-50px;"></div>');
 		
 		ksmallimg = $('.ksmall img', kslider);
@@ -128,9 +130,9 @@
 		if(posX < options.width && ksmallwidth > options.width)
 		{
 			setInterval(function(){
-				xp += (marginLeft - xp) / 16;
+				xp += ((marginLeft - xp) / 8);
 				ksmall.css({'margin-left': xp});
-			}, 5);
+			}, 10);
 		}
 
 		
