@@ -59,12 +59,11 @@
 		var options = $.extend(defaults, options);
 		
 
-		var ksmall = $('.ksmall', kslider);
+		var ksmall = $('.ksmall', kslider).css('cursor','pointer');
 		var bordureksmallimg = ($('.ksmall img', kslider).outerWidth(true)-$('.ksmall img', kslider).width());
 
 		//Cacher toutes les grandes images sauf la 1ère
 		$('.kbig img', kslider).not(':first-child').hide();
-		
 		
 		//Définition de la taille du slider complet : grand conteneur + petit conteneur
 		kslider.css({'width': options.width,'height' : options.height+options.heightThumb});
@@ -73,15 +72,12 @@
 		kbig.css({'height': options.height,'width':options.width});
 			
 		//Opérations sur les grandes images
-		$('.kbig img', kslider).css({'width':'auto', 'height':'auto', 'max-width': options.width, 'max-height':options.height});
+		$('.kbig img', kslider).css({'width':'auto', 'height':'auto', 'max-width': options.width, 'max-height':options.height, 'position':'absolute','cursor':'pointer'});
 		$('.kbig img', kslider).map(function(){
-			var differenceHauteur = options.height - $(this).outerHeight();
-			var differenceLargeur = options.width - $(this).outerWidth();
-			if(differenceHauteur == 0);
-				$(this).css({'margin-top': differenceHauteur/2, 
-								 'margin-bottom': differenceHauteur/2,
-								 'margin-right': differenceLargeur/2,
-								 'margin-left': differenceLargeur/2, });
+			$(this).css({'margin-top': (options.height - $(this).outerHeight())/2, 
+							 'margin-bottom': (options.height - $(this).outerHeight())/2,
+							 'margin-right': (options.width - $(this).outerWidth())/2,
+							 'margin-left': (options.width - $(this).outerWidth())/2, });
 		});
 		
 		//Opérations sur les miniatures
@@ -91,7 +87,8 @@
 			   'height':'auto', 
 				'max-width': options.widthThumb-bordureksmallimg, 
 				'max-height': options.heightThumb-bordureksmallimg,
-				'opacity': options.opacity})
+				'opacity': options.opacity,
+				'float':'left'})
 		.map(function(i){
 
 				if(options.sameArea)
@@ -122,21 +119,36 @@
 
 		//Ajout des flèches de navigation
 		if(options.nav)
-		kslider.append('<div class="kleft" style="left:-43px;margin-top:-'+options.heightThumb+'px;border-width: '+(options.heightThumb/2)+'px 21px"></div><div class="kright" style="margin-top:-'+options.heightThumb+'px;border-width: '+(options.heightThumb/2)+'px 21px;right:-43px;"></div>');
+		{
+			kslider.append('<div class="kleft"></div><div class="kright"></div>');
+			$('.kleft, .kright', kslider)
+				.css({'border-color': 'transparent #777 transparent transparent', 
+						'cursor':'pointer',
+						'border-style': 'solid',
+						'position':'relative',
+						'float':'left',
+						'left':'-42px',
+						'margin-top':-options.heightThumb,
+						'border-width': options.heightThumb/2 + 'px 21px'});
+						
+			$('.kright', kslider)
+				.css({'border-color': 'transparent transparent transparent #777', 
+						'float':'right',
+						'left':'auto',
+						'right':'-42px'});
+		}
 		
 		ksmallimg = $('.ksmall img', kslider);
-		kbigimg = $('.kbig img', kslider);
 		
 		//Move mouse hover thumnails - Bouger la souris au dessus des miniatures
 		var marginLeft = 0, posX = 0; var xp = 0;
 		ksmall.mousemove(function(e){ 
 			posX = e.pageX - kslider.offset().left; 
-			if(posX < 30){
+			if(posX < 30)
 				posX = 0;
-				
-				}
 			else if(posX > options.width-30)
 				posX = options.width;
+
 			marginLeft = -posX / ((options.width)/(ksmallwidth-options.width));
 		});
 		

@@ -1,34 +1,21 @@
 #kslider {
 	box-shadow: 0px 0px 20px 6px #AAA;
-	position:relative;
 	margin:40px;
 	float:left;
 }
-#kslider .kbig img {
-	position:absolute;
-	cursor:pointer;
-}
 #kslider .ksmall {
-	position:relative;
 	background-color:#111;	
-	cursor:pointer;
 }
 #kslider .ksmall img {
-	float:left;
 	background-color:#999;
 	border:2px solid #EEE;
 	margin:4px;
 }
 #kslider .kleft, #kslider .kright {
-	border-color: transparent #111 transparent transparent;
-	cursor:pointer;
-	border-style: solid;
-	position:relative;
-	opacity:0.4;
-	float:left;
+
 }
 #kslider .kright  {
-	border-color: transparent transparent transparent #111;
+	border-color: transparent transparent transparent #DDD;
 	float:right;
 }
 
