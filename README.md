@@ -1,13 +1,12 @@
 Kslider : simple slider for jQuery
 =============
 
-Kslider is a very simple slider for images with a little code HTML and jQuery to work
+Kslider is a very simple slider for images with a little code HTML and jQuery (4kb) to work
 
-How to work
+How it works
 -----------
 
-### Your HTML with thumnails (exemple 1)
-
+### Your HTML with thumbnails (exemple 1)
 	 <div id="kslider">
 		<div>
 			<img src="img/1.jpg" alt="">
@@ -51,19 +50,23 @@ How to work
 		</div>
 	</div>
 
-### Your Javascript code
+### Examples of Javascript code
 
 	<script>
 		$(window).load(function(){ 
-		$('#kslider').kslider(); // For exemple 1
+		$('#kslider').kslider(); // without any options
 		$('#kslider2').kslider({width:325,
 										height:200,
 										widthThumb:60,
 										heightThumb:37,
-										nav:false}); // For exemple 2
-		});
+										speed: 500,
+										sameSize: false,
+										opacity:0.4,
+										nav:false}); 
+		}); // with all options
 	</script>
-### CSS just for design, without, it's totally functional
+	
+### You can use little CSS to design 
 	#kslider {
 		box-shadow: 0px 0px 20px 6px #AAA;
 		margin:40px;
@@ -95,20 +98,7 @@ How to work
 		cursor:pointer;
 	}
 	#kslider2 .ksmall img {
-		float:left;
 		background-color:#999;
 		border:2px solid #EEE;
 		margin:4px;
-	}
-	#kslider2 .kleft, #kslider2 .kright {
-		border-color: transparent #111 transparent transparent;
-		cursor:pointer;
-		border-style: solid;
-		position:relative;
-		opacity:0.4;
-		float:left;
-	}
-	#kslider2 .kright  {
-		border-color: transparent transparent transparent #111;
-		float:right;
 	}
