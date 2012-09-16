@@ -56,13 +56,13 @@ How it works
 		$(window).load(function(){ 
 		$('#kslider').kslider(); // without any options
 		$('#kslider2').kslider({width:325,
-										height:200,
-										widthThumb:60,
-										heightThumb:37,
-										speed: 500,
-										sameSize: false,
-										opacity:0.4,
-										nav:false}); 
+									height:200,
+									widthThumb:60,
+									heightThumb:37,
+									speed: 500,
+									sameSize: false,
+									opacity:0.4,
+									nav:false}); 
 		}); // with all options
 	</script>
 	
