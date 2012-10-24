@@ -51,19 +51,20 @@ How it works
 	</div>
 
 ### Examples of Javascript code
-
 	<script>
-		$(window).load(function(){ 
-		$('#kslider').kslider(); // without any options
-		$('#kslider2').kslider({width:325,
-									height:200,
-									widthThumb:60,
-									heightThumb:37,
-									speed: 500,
-									sameSize: false,
-									opacity:0.4,
-									nav:false}); 
-		}); // with all options
+		$(document).ready(function(){ 
+			$('#kslider').kslider();
+			$('#kslider2').kslider({width:325,       // Width of the slider
+											height:200,      // Height of the slider
+											widthThumb:60,   // Width max of the thumbnail
+											heightThumb:37,  // Width max of the thumbnail
+											speed: 500,      // Speed of the transition
+											sameSize: false, // Same size for all thumbnails
+											opacity:0.4,     // Opacity of the thumnails
+											nav:false});     // Show the arrows of navigation
+									
+			$('#kslider3').kslider();
+		});
 	</script>
 	
 ### You can use little CSS to design 
