@@ -3,9 +3,9 @@
 	$.fn.kslider = function(options) {
 
 		var kslider = $(this);
-		kslider.append('<img class="kloading" src="http://dev.kevingermain.com/kslider/img/loading.gif">');
-		kslider.css('display', 'inline-block');
 		$('div', kslider).hide();
+		kslider.append('<img class="kloading" src="img/loading.gif">');
+		kslider.css({'width':'30px','height':'30px'})
 
 		// Retourne une valeur MAX pour la taille (largeur ou hauteur) d'un selecteur
 		function max(selecteur, width) {
